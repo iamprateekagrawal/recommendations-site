@@ -1,38 +1,134 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.outer-box {
+  background-color: white;
+  margin: 10px 23% 10px 23%;
+  padding: 5px;
+  /* border: 2px solid red; */
+  border-radius: 5px;
+  box-shadow: 1px 2px 5px #00000085;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.outer-box > div {
+  font-size: 15px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.inner-box{
+  margin: 10px;
+  margin-bottom: 0px;
+  padding: 5px;
+  background-color: #f7f7f7;
+  border: blur 0.5px #00000085;
+  border-radius: 5px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  /* border: 2px solid green; */
+}
+
+.left-container{
+  width: 50%;
+}
+
+.set {
+  margin: 5px;
+}
+
+.form-txt{
+  font-size: 15px;
+}
+
+.btn-pair label{
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  display: inline-block;
+  height: 30px;
+  /* width: 55px; */
+  line-height: 26px;
+  margin: 5px 20px 5px 0px;
+  padding: 0;
+  text-align: center;
+  transition: 0.2s all ease-in-out;
+  width: 80px;
+  color: #00814D;
+  /* border: 2px solid red; */
+}
+
+.btn-pair input[type=radio]{
+  display: none;
+}
+
+.btn-pair input[type=radio]:checked + label {
+  background: #00814D;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.dropdown{
+  color: #00814D;
+  width: 300px;
+  height: 35px;
+  margin: 10px 0px 5px 2px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.display-none{
+  display:none;
+}
+
+.right-container{
+  width: 50%;
+}
+
+.right-inputs{
+  height: 24.5px;
+  width: 300px;
+  margin: 12px 0px 5px 2px;
+}
+
+.date-input {
+  height: 30px;
+  width: 200px;
+  margin: 10px 0px 5px 2px;
+}
+
+.last-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f7f7;
+  margin: 0px 10px 20px 10px;
+  padding: 0px 5px 5px 5px;
+}
+
+.submit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#submit-btn {
+  /* height: 25px; */
+  padding: 5px;
+  background-color: #00814D;
+  border: none;
+  border-radius: 5px;
+  justify-content: center;
+  cursor: pointer;
+  /* width: 200px; */
+}
+
+#submit-btn:disabled {
+  background-color: #9faa9c;
+  border: none;
+  cursor:unset;
+}
+
+.message{
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 23% 5px 23% ;
 }

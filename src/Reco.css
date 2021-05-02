@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.box{
+    margin: 10px 23% 15px 23%;
+    border: 1px transparent solid;
+    border-radius: 10px;
+    box-shadow: 1px 2px 5px #00000085;
+    /* border: none; */
+    /* border-radius: 10px; */
+}
+
+.head {
+    display: flex;
+    flex-direction: row;
+    background-color: #00814D;
+}
+
+.tag {
+    margin: 5px 8px 5px 15px;
+    padding: 0px;
+    width: 50px;
+    border: 1px solid black;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    border-radius: 2px;
+    background-color: white;
+}
+
+.data-call{
+    background-color: blanchedalmond;
+    padding: 2px 5px 2px 5px;
+    text-align: center;
+    /* border: 2px solid grey; */
+    border-radius: 2px;
+    font-size: 0.8rem;
+}
+
+.data-tradePrice{
+    background-color: white;
+    /* border: 2px solid red; */
+    padding: 2px 5px 2px 5px;
+    border-radius: 2px;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.label {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    /* vertical-align: auto; */
+    padding-left: 5px;
+    color: black;
+}
+
+.data-instrument{
+    font: bolder;
+}
+
+.data-date{
+    font-size: 12px;
+    /* text-align: left; */
+}
+
+.content {
+    background-color: #f7f7f7;
+    margin: 0px;
+    border: 2px solid #f7f7f7;
+}
+
+.batch {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-top: 10px;
+    margin-bottom: 5px;
+}
+
+.column{
+    text-align: center;
+    width: 150px;
+}
+
+.entry-type{
+    font-size: 12px;
+}
+
+.moreReco-btn-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    /* border: 2px red solid; */
+}
+
+.moreReco-btn {
+    padding: 5px;
+    background-color: #00814D;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: blanchedalmond;
+}
+
+.moreReco-btn:hover {
+    background-color: #116d48;
+}
