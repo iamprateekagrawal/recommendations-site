@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/recommendations-site/static/css/main.4abf4ac2.chunk.css",
+    "main.js": "/recommendations-site/static/js/main.3d5f8a2c.chunk.js",
+    "main.js.map": "/recommendations-site/static/js/main.3d5f8a2c.chunk.js.map",
+    "runtime-main.js": "/recommendations-site/static/js/runtime-main.3c4bfd0a.js",
+    "runtime-main.js.map": "/recommendations-site/static/js/runtime-main.3c4bfd0a.js.map",
+    "static/css/2.4c78f058.chunk.css": "/recommendations-site/static/css/2.4c78f058.chunk.css",
+    "static/js/2.f6abb30a.chunk.js": "/recommendations-site/static/js/2.f6abb30a.chunk.js",
+    "static/js/2.f6abb30a.chunk.js.map": "/recommendations-site/static/js/2.f6abb30a.chunk.js.map",
+    "static/js/3.1dcef897.chunk.js": "/recommendations-site/static/js/3.1dcef897.chunk.js",
+    "static/js/3.1dcef897.chunk.js.map": "/recommendations-site/static/js/3.1dcef897.chunk.js.map",
+    "index.html": "/recommendations-site/index.html",
+    "static/css/2.4c78f058.chunk.css.map": "/recommendations-site/static/css/2.4c78f058.chunk.css.map",
+    "static/css/main.4abf4ac2.chunk.css.map": "/recommendations-site/static/css/main.4abf4ac2.chunk.css.map",
+    "static/js/2.f6abb30a.chunk.js.LICENSE.txt": "/recommendations-site/static/js/2.f6abb30a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3c4bfd0a.js",
+    "static/css/2.4c78f058.chunk.css",
+    "static/js/2.f6abb30a.chunk.js",
+    "static/css/main.4abf4ac2.chunk.css",
+    "static/js/main.3d5f8a2c.chunk.js"
+  ]
+}
