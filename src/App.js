@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>
-      <Router>
+      <Router basename="/recommendations-site">
       <Route
           path="/reco"
           render={(props) => ((fullData.length===1)?(
