@@ -1,7 +1,8 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import DatePicker from 'react-date-picker';
 import { ThemeContext } from '../App';
 // import axios from 'axios';
+import instruments from '../instruments.json';
 
 function PostReco(props) {
 
@@ -40,32 +41,13 @@ function insVal() {
     }
 }
 
-const showIns = async () => {
-  // try{
-    // const res1 = await fetch('./instruments.json');
-    const res1 = await fetch('./instruments.json'); 
-    // if (!res1.ok) {
-    //   throw new Error(`HTTP error! status: ${res1.status}`);
-    // }else{
-    //   console.log('the data', res1.data)
-    // }
-    const res2 = await res1.json();
-    console.log('here', res2.data);
-    setInsData(res2.data);
-  // }catch(err){
-  //   console.log(err);
-  // }
-//   fetch(instruments)
-//     .then(response => { return response.text();})
-//     .then(responseData => {console.log(responseData); return responseData;})
-//     // .then(data => {this.setState({"questions" : data});})
+useEffect(() => {
+  setInsData(instruments.data);
+}, []);
 
-//     // .catch(err => {
-//     //     console.log("fetch error" + err);
-//     // });
-// // }
+const showIns = () => {
+  setInsData(instruments.data);
 }
-showIns();
 
 function allFilled () {
   for (var key in data) {
@@ -181,7 +163,7 @@ function showMessage() {
           <div className="set">
             <label htmlFor="instrument-type" className='form-txt'>Instrument type</label>
             <div>
-              <select name="instrument" id="ins-type" className="dropdown" disabled={data.exchange===''} onChange={onChange}>
+              <select name="instrument" id="ins-type" className="dropdown" disabled={data.exchange===''} onChange={onChange} onClick={showIns}>
                 <option disabled selected className='display-none'>{insVal()}</option>
                 {insData.map((data)=>{
                   return <option value ={data.tradingsymbol}>{data.tradingsymbol}</option>

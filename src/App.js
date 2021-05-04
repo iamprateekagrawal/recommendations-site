@@ -45,7 +45,7 @@ function App() {
   return (
     <>
     <ThemeContext.Provider value = {theme}>
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router path={process.env.PUBLIC_URL + '/'}>
       <Route
           path="/reco"
           render={(props) => ((fullData.length===1)?(
@@ -64,7 +64,7 @@ function App() {
           path="/postReco" 
           render={(props) => <PostReco {...props} callBack = {callBack}/>} />
         <Route 
-          exact path ="/recommendations-site" 
+          exact path ="/" 
           render={()=>(
           <Redirect to='/postReco'/> )}/>
       </Router>
