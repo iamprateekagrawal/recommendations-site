@@ -4,8 +4,28 @@ import { BrowserRouter as Router, Redirect, Route } from "react-router-dom";
 import PostReco from "./Components/PostReco";
 import Reco from "./Components/Reco";
 
-function App() {
+const themes = {
+  dark: {
+      color: 'white',
+      background: 'black',
+  },
+  light: {
+      color: 'black',
+      background: 'white',
+  }
+}
+export const ThemeContext = React.createContext(themes.dark)
 
+function App() {
+  const [theme, setTheme] = useState(themes.light)
+  function toggleTheme() {
+    if(theme === themes.dark){
+      setTheme(themes.light)
+    }
+    else{
+      setTheme(themes.dark)
+    }
+  }
   function allFilled (data) {
     for (var key in data) {
       if (data[key] === '' || data[key] === false){
@@ -24,7 +44,8 @@ function App() {
 
   return (
     <>
-      <Router basename="/recommendations-site">
+    <ThemeContext.Provider value = {theme}>
+      <Router>
       <Route
           path="/reco"
           render={(props) => ((fullData.length===1)?(
@@ -47,6 +68,8 @@ function App() {
           render={()=>(
           <Redirect to='/postReco'/> )}/>
       </Router>
+      </ThemeContext.Provider>
+      <div className='theme-div'><button className = 'theme-btn' style={theme} onClick={toggleTheme}>Toggle Theme</button></div>
     </>
   );
 }

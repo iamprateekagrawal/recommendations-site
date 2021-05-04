@@ -1,8 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import DatePicker from 'react-date-picker';
+import { ThemeContext } from '../App';
+// import axios from 'axios';
 
 function PostReco(props) {
+
+  const theme = useContext(ThemeContext);
   const [insData,setInsData]=useState([]);
+  const [spin, setSpin] = useState('no-spin');
+
   var date = new Date();
   const [data, setData] = useState({
     call: '',
@@ -35,13 +41,29 @@ function insVal() {
 }
 
 const showIns = async () => {
-  try{
-    const res1 = await fetch('./instruments.json');
+  // try{
+    // const res1 = await fetch('./instruments.json');
+    const res1 = await fetch('./instruments.json'); 
+    // if (!res1.ok) {
+    //   throw new Error(`HTTP error! status: ${res1.status}`);
+    // }else{
+    //   console.log('the data', res1.data)
+    // }
     const res2 = await res1.json();
+    console.log('here', res2.data);
     setInsData(res2.data);
-  }catch(err){
-    console.log(err);
-  }
+  // }catch(err){
+  //   console.log(err);
+  // }
+//   fetch(instruments)
+//     .then(response => { return response.text();})
+//     .then(responseData => {console.log(responseData); return responseData;})
+//     // .then(data => {this.setState({"questions" : data});})
+
+//     // .catch(err => {
+//     //     console.log("fetch error" + err);
+//     // });
+// // }
 }
 showIns();
 
@@ -87,11 +109,15 @@ function checkSubmission () {
 
 function sendData (event) {
     if(!checkSubmission()) {
+        setSpin('spin');
         event.preventDefault();
-        data.submitted = true;
-        props.callBack(data);
-        console.log('sent', data);
-        props.history.push(`/reco`);
+        setTimeout(function() {
+          data.submitted = true;
+          props.callBack(data);
+          console.log('sent', data);
+          setSpin('no-spin');
+          props.history.push(`/reco`);
+        }, 0);  
     }
 }
 
@@ -105,21 +131,23 @@ function showMessage() {
 
   return (
     <>
+    <div>
     <div className="message">
       <div className='show-message'>{showMessage()}</div>
     </div>
-      <div className="outer-box">
+      <div className="outer-box"  style={theme}>
         <div>
           Fill in the following details to send recommendations to your subscribers.
         </div>
         <form>
-        <div className="inner-box">
+        <div className="middle-box">
+        <div className="inner-box"  style={theme}>
           <div className="left-container">
           <div className="set">
             <div className='form-txt'>Is it buy call or sell call?</div>
             <div className='btn-pair'>
-              <input id="buy-btn" name="call" type="radio" value="Buy" onChange={onChange}/>
-              <label htmlFor="buy-btn">Buy</label>
+              <input id="buy-btn" name="call" type="radio" value="Buy" onChange={onChange} />
+              <label htmlFor="buy-btn" >Buy</label>
               <input id="sell-btn" name="call" type="radio" value="Sell" onChange={onChange}/>
               <label htmlFor="sell-btn">Sell</label>
             </div>
@@ -185,18 +213,19 @@ function showMessage() {
             </div>
           </div>
         </div>
-          <div className="last-input">
+          <div className="last-input" style={theme}>
             <div className="set">
               <label htmlFor="target-price" className='form-txt'>Target Price: </label>
               <input className="right-inputs" id="trade-price" name='targetPrice' value={data.targetPrice} type="number" step="0.1" onChange={(event) => {onChange(event)}}/>
             </div>
           </div>
-        
+        </div>
         <div className='submit'>
-            <input id='submit-btn' type="submit" value="Add Recommendation" disabled={checkSubmission()} onClick={sendData}/>
+            <input id='submit-btn' type="submit" value="Add Recommendation" disabled={checkSubmission()} onClick={sendData}/><span id="spinner" className={spin}></span>
         </div>
         
         </form>
+      </div>
       </div>
     </>
   );

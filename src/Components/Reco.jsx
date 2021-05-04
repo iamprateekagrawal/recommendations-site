@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
 import "../Reco.css";
+import { ThemeContext } from '../App';
 
 function Reco (props) {
     const fullData = props.data;
-
+    const theme = useContext(ThemeContext);
     function showDate(date, month, year) {
         var dd = '', mmm, yyyy = year.toString();
         if(date<10){
@@ -47,7 +48,7 @@ function Reco (props) {
                             <div className="data-date">{showDate(data.date.getDate(), data.date.getMonth(), data.date.getFullYear())}</div>
                         </div>
                     </div>
-                    <div className="content">
+                    <div className="content"  style={theme}>
                         <div className="batch">
                             <div className="column">
                                 <div className="entry-type">Quantity</div>
